@@ -1,4 +1,4 @@
-Project ini bertema tentang Asuransi. Flow project ini sangat sederhanaa, yaitu CRUD Product, CRUD Prospect, CRUD Nasabah, CRUD Vehicle, dan CRUD PolicyLife, CRUD PolicyVehicle. Database SQL yang digunakan sudah disertakan dalam project ini dengan nama Winterhold. Untuk testing, saya menggunakan Aplikasi Postman dengan URL, Method, Parameter, dan Body sebagai berikut :
+Project ini bertema tentang Asuransi. Flow project ini sangat sederhanaa, yaitu CRUD Product, CRUD Prospect, CRUD Nasabah, CRUD Vehicle, dan CRUD PolicyLife, CRUD PolicyVehicle. Database SQL yang digunakan sudah disertakan dalam project ini dengan nama Asuransi. Untuk testing, saya menggunakan Aplikasi Postman dengan URL, Method, Parameter, dan Body sebagai berikut :
 
 1. Find All Product URL : http://localhost:8080/product , Method : GET, Parameter : -, Body : -.
 2. Insert New Product URL : http://localhost:8080/product , Method : POST, Parameter : -, Body : {
