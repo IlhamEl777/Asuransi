@@ -1,0 +1,663 @@
+{
+	"info": {
+		"_postman_id": "cfea51d8-e74f-4c56-86f8-f86da548d6df",
+		"name": "Asuransi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20494916"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get All Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Bugar\",\r\n    \"productType\": \"Kesehatan\",\r\n    \"frekuensi\": \"Bulanan\",\r\n    \"paymentFee\": \"1200\",\r\n    \"productBenefits\": \"untung\",\r\n    \"terms\": \"aturan 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Bugar\",\r\n    \"productType\": \"Kesehatan\",\r\n    \"frekuensi\": \"Bulanan\",\r\n    \"paymentFee\": 18000,\r\n    \"productBenefits\": \"untung\",\r\n    \"terms\": \"aturan 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product?productId=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Prospect",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product?productId=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prospect",
+			"item": [
+				{
+					"name": "Get All Prospect",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prospect",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prospect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Prospect",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Asob\",\r\n    \"lastName\": \"sobari\",\r\n    \"birthDate\": \"1999-11-19\",\r\n    \"birthPlace\": \"pemalang\",\r\n    \"gender\": \"Male\",\r\n    \"job\": \"Programmer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/prospect",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prospect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Prospect",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Asob\",\r\n    \"lastName\": \"Aos\",\r\n    \"birthDate\": \"1999-11-19\",\r\n    \"birthPlace\": \"Padang\",\r\n    \"gender\": \"Male\",\r\n    \"job\": \"Programmer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/prospect?id=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prospect"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Prospect",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prospect?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prospect"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Nasabah",
+			"item": [
+				{
+					"name": "Get All Nasabah",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nasabah",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nasabah"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Nasabah",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identityId\": \"3216099999888\",\r\n    \"familyStatus\": \"Anak\",\r\n    \"paymentMethod\": \"CC\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/nasabah?prospectId=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nasabah"
+							],
+							"query": [
+								{
+									"key": "prospectId",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Nasabah",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identityId\": \"3333333\",\r\n    \"familyStatus\": \"Anak\",\r\n    \"paymentMethod\": \"MM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/nasabah?nasabahId=31/2022/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nasabah"
+							],
+							"query": [
+								{
+									"key": "nasabahId",
+									"value": "31/2022/6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Prospect",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nasabah?nasabahId=05/2022/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nasabah"
+							],
+							"query": [
+								{
+									"key": "nasabahId",
+									"value": "05/2022/1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Get All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/vehicles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Nasabah Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehiclePlate\": \"BAA9\",\r\n    \"vehicleType\": \"Mobil\",\r\n    \"vehicleRegistration\": \"20112\",\r\n    \"vehicleBrand\": \"Avaanza\",\r\n    \"vehicleModel\": \"Jazz\",\r\n    \"vehicleColor\": \"White\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vehicles?nasabahId=31/2022/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles"
+							],
+							"query": [
+								{
+									"key": "nasabahId",
+									"value": "31/2022/6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Nasabah Vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicleType\": \"Mobil\",\r\n    \"vehicleRegistration\": \"20112\",\r\n    \"vehicleBrand\": \"JAJAkkk\",\r\n    \"vehicleModel\": \"Jazz\",\r\n    \"vehicleColor\": \"White\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/vehicles?vehicleId=B998",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles"
+							],
+							"query": [
+								{
+									"key": "vehicleId",
+									"value": "B998"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Nasabah Vehicle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/vehicles?vehicleId=BAA9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vehicles"
+							],
+							"query": [
+								{
+									"key": "vehicleId",
+									"value": "BAA9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PolicyLife",
+			"item": [
+				{
+					"name": "Get All PolicyLife",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/policylife",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"policylife"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Policy Life",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"life/2\",\r\n    \"nasabahId\": \"31/2022/6\",\r\n    \"insuredNasabahId\": \"31/2022/6\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/policylife",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"policylife"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Policy Life",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"life/2\",\r\n    \"nasabahId\": \"31/2022/6\",\r\n    \"insuredNasabahId\": \"05/2022/1\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/policylife?policyId=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"policylife"
+							],
+							"query": [
+								{
+									"key": "policyId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Policy Life",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/policylife?policyId=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"policylife"
+							],
+							"query": [
+								{
+									"key": "policyId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PolicyVehicle",
+			"item": [
+				{
+					"name": "Get All PolicyVehicle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/policyvehicle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"policyvehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Policy Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"vehicle/1\",\r\n    \"vehiclePlateId\": \"B998\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/policyvehicle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"policyvehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Policy Vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"vehicle/3\",\r\n    \"vehiclePlateId\": \"B998\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/policyvehicle?policyId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"policyvehicle"
+							],
+							"query": [
+								{
+									"key": "policyId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
