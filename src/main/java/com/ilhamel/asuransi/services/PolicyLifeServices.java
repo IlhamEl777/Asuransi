@@ -9,7 +9,9 @@ import com.ilhamel.asuransi.repositories.NasabahRepository;
 import com.ilhamel.asuransi.repositories.PolicyLifeRepository;
 import com.ilhamel.asuransi.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -34,9 +36,9 @@ public class PolicyLifeServices {
     }
 
     public List<PolicyLifeHeaderDto> insertPolicyLife(UpsertPolicyLifeDto newPolicyLife) {
-        Nasabah nasabah = nasabahRepository.findById(newPolicyLife.getNasabahId()).orElseThrow(() -> new EntityNotFoundException("Nasabah not found"));
-        Nasabah insuredNasabah = nasabahRepository.findById(newPolicyLife.getInsuredNasabahId()).orElseThrow(() -> new EntityNotFoundException("Insured Nasabah not found"));
-        Product product = productRepository.findById(newPolicyLife.getProductId()).orElseThrow(() -> new EntityNotFoundException("Product not found"));
+        Nasabah nasabah = nasabahRepository.findById(newPolicyLife.getNasabahId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nasabah not found"));
+        Nasabah insuredNasabah = nasabahRepository.findById(newPolicyLife.getInsuredNasabahId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Insured Nasabah not found"));
+        Product product = productRepository.findById(newPolicyLife.getProductId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
         Stream.of(newPolicyLife).forEach(field -> {
             if (field != null) {
                 policyLifeRepository.save(newPolicyLife.toModel(nasabah, insuredNasabah, product));
@@ -46,15 +48,15 @@ public class PolicyLifeServices {
     }
 
     public PolicyLifeHeaderDto updatePolicyLife(Integer id, UpsertPolicyLifeDto newData) {
-        PolicyLife data = policyLifeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Policy Life not found"));
-        Product product = productRepository.findById(newData.getProductId()).orElseThrow(() -> new EntityNotFoundException("Product not found"));
-        Nasabah nasabah = nasabahRepository.findById(newData.getNasabahId()).orElseThrow(() -> new EntityNotFoundException("Nasabah not found"));
-        Nasabah insuredNasabah = nasabahRepository.findById(newData.getInsuredNasabahId()).orElseThrow(() -> new EntityNotFoundException("Insured Nasabah not found"));
+        PolicyLife data = policyLifeRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Policy Life not found"));
+        Product product = productRepository.findById(newData.getProductId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+        Nasabah nasabah = nasabahRepository.findById(newData.getNasabahId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nasabah not found"));
+        Nasabah insuredNasabah = nasabahRepository.findById(newData.getInsuredNasabahId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Insured Nasabah not found"));
 
         Stream.of(newData).forEach(field -> {
             if (field != null) {
                 field.setValue(data, product, nasabah, insuredNasabah);
-                policyLifeRepository.save(data);
+                policyLifeRepository.save(field.setValue(data, product, nasabah, insuredNasabah));
             }
         });
         return PolicyLifeHeaderDto.set(data);

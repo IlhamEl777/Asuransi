@@ -33,18 +33,17 @@ public class ProductServices {
     }
 
     public ProductHeaderDto updateProduct(Integer productId, UpsertProductDto updatedProduct) {
-        Product product = productRepository.findById(productId).orElseThrow(() -> new EntityNotFoundException("Product not found"));
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
         Stream.of(updatedProduct).forEach(field -> {
             if (field != null) {
-                field.setValue(product);
-                productRepository.save(updatedProduct.toModel());
+                productRepository.save(field.setValue(product));
             }
         });
         return ProductHeaderDto.set(product);
     }
 
     public List<ProductHeaderDto> deleteProduct(Integer productId) {
-        Product product = productRepository.findById(productId).orElseThrow(() -> new EntityNotFoundException("Product not found"));
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Product not found"));
         try{
             productRepository.delete(product);
         }catch (Exception e){

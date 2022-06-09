@@ -22,9 +22,10 @@ public class UpsertPolicyLifeDto implements Serializable {
                 LocalDate.now());
     }
 
-    public void setValue(PolicyLife data, Product product, Nasabah nasabah, Nasabah insuredNasabah) {
+    public PolicyLife setValue(PolicyLife data, Product product, Nasabah nasabah, Nasabah insuredNasabah) {
         data.setProduct(product);
         data.setNasabah(nasabah);
         data.setInsuredNasabah(insuredNasabah);
+        return data;
     }
 }

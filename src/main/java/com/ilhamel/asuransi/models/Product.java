@@ -1,5 +1,6 @@
 package com.ilhamel.asuransi.models;
 
+import com.ilhamel.asuransi.dtos.product.UpsertProductDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -51,4 +52,5 @@ public class Product {
         this.productBenefits = productBenefits;
         this.terms = terms;
     }
+
 }

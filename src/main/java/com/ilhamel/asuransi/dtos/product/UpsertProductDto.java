@@ -26,12 +26,13 @@ public class UpsertProductDto implements Serializable {
         );
     }
 
-    public void setValue(Product product) {
+    public Product setValue(Product product) {
         product.setProductName(productName);
         product.setProductType(productType);
         product.setFrekuensi(frekuensi);
         product.setPaymentFee(paymentFee);
         product.setProductBenefits(productBenefits);
         product.setTerms(terms);
+        return product;
     }
 }

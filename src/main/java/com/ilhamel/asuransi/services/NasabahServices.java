@@ -51,8 +51,8 @@ public class NasabahServices {
 
         Stream.of(newData).forEach(field -> {
             if (field != null) {
-                field.setValue(data);
-                nasabahRepository.save(data);
+
+                nasabahRepository.save(field.setValue(data));
             }
         });
 

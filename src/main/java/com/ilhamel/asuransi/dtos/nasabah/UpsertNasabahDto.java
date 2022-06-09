@@ -22,9 +22,10 @@ public class UpsertNasabahDto implements Serializable {
         );
     }
 
-    public void setValue(Nasabah data) {
+    public Nasabah setValue(Nasabah data) {
         data.setIdentityId(identityId);
         data.setFamilyStatus(familyStatus);
         data.setPaymentMethod(paymentMethod);
+        return data;
     }
 }

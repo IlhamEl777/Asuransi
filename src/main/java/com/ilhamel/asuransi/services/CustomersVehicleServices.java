@@ -33,7 +33,7 @@ public class CustomersVehicleServices {
 
 
     public CustomersVehicleHeaderDto insertCustomersVehicle(String nasabahId, UpsertCustomersVehicleDto newCustomersVehicle) {
-        Nasabah nasabah = nasabahRepository.findById(nasabahId).orElseThrow(() -> new EntityNotFoundException("Nasabah not found"));
+        Nasabah nasabah = nasabahRepository.findById(nasabahId).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Nasabah not found"));
         customersVehicleRepository.findById(newCustomersVehicle.getVehiclePlate()).ifPresent(data -> {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Vehicle already exist");
         });
@@ -52,8 +52,7 @@ public class CustomersVehicleServices {
 
         Stream.of(newCustomersVehicle).forEach(field -> {
             if (field != null) {
-                field.setValue(data);
-                customersVehicleRepository.save(data);
+                customersVehicleRepository.save(field.setValue(data));
             }
         });
 

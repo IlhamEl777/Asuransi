@@ -26,11 +26,12 @@ public class UpsertCustomersVehicleDto implements Serializable {
                 nasabah);
     }
 
-    public void setValue(CustomersVehicle data) {
+    public CustomersVehicle setValue(CustomersVehicle data) {
         data.setVehicleType(vehicleType);
         data.setVehicleRegistration(vehicleRegistration);
         data.setVehicleBrand(vehicleBrand);
         data.setVehicleModel(vehicleModel);
         data.setVehicleColor(vehicleColor);
+        return data;
     }
 }

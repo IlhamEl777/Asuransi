@@ -19,12 +19,9 @@ public class UpsertPolicyVehicleDto implements Serializable {
         );
     }
 
-    public void setValue(CustomersVehicle data, PolicyVehicle policyVehicle, Product product) {
-        if (this.productId != null) {
-            policyVehicle.setProduct(product);
-        }
-        if (this.vehiclePlateId != null) {
-            policyVehicle.setVehiclePlate(data);
-        }
+    public PolicyVehicle setValue(CustomersVehicle data, PolicyVehicle policyVehicle, Product product) {
+        policyVehicle.setProduct(product);
+        policyVehicle.setVehiclePlate(data);
+        return policyVehicle;
     }
 }

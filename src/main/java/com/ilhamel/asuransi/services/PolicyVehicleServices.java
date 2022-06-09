@@ -9,7 +9,9 @@ import com.ilhamel.asuransi.repositories.CustomersVehicleRepository;
 import com.ilhamel.asuransi.repositories.PolicyVehicleRepository;
 import com.ilhamel.asuransi.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -34,33 +36,30 @@ public class PolicyVehicleServices {
     }
 
     public List<PolicyVehicleHeaderDto> insertPolicyVehicle(UpsertPolicyVehicleDto newPolicyVehicle) {
-        Product product = productRepository.findById(newPolicyVehicle.getProductId()).orElseThrow(() -> new EntityNotFoundException("Product not found"));
-        CustomersVehicle customersVehicle = customersVehicleRepository.findById(newPolicyVehicle.getVehiclePlateId()).orElseThrow(() -> new EntityNotFoundException("Customers Vehicle not found"));
+        Product product = productRepository.findById(newPolicyVehicle.getProductId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+        CustomersVehicle customersVehicle = customersVehicleRepository.findById(newPolicyVehicle.getVehiclePlateId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customers Vehicle not found"));
 
         Stream.of(newPolicyVehicle).forEach(field -> {
             if (field != null) {
                 policyVehicleRepository.save(newPolicyVehicle.toModel(product, customersVehicle));
             }
-
         });
         return findAll();
     }
 
 
     public PolicyVehicleHeaderDto updatePolicyVehicle(Integer policyId, UpsertPolicyVehicleDto updatedPolicyVehicle) {
-        CustomersVehicle data = customersVehicleRepository.findById(updatedPolicyVehicle.getVehiclePlateId()).orElseThrow(() -> new EntityNotFoundException("Customers Vehicle not found"));
-        PolicyVehicle policyVehicle = policyVehicleRepository.findById(policyId).orElseThrow(() -> new EntityNotFoundException("Policy Vehicle not found"));
-        Product product = productRepository.findById(updatedPolicyVehicle.getProductId()).orElseThrow(() -> new EntityNotFoundException("Product not found"));
+        CustomersVehicle data = customersVehicleRepository.findById(updatedPolicyVehicle.getVehiclePlateId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customers Vehicle not found"));
+        PolicyVehicle policyVehicle = policyVehicleRepository.findById(policyId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Policy Vehicle not found"));
+        Product product = productRepository.findById(updatedPolicyVehicle.getProductId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,  "Product not found"));
 
         Stream.of(updatedPolicyVehicle).forEach(field -> {
             if (field != null) {
-                field.setValue(data, policyVehicle, product);
-                policyVehicleRepository.save(policyVehicle);
+                policyVehicleRepository.save(field.setValue(data, policyVehicle, product));
             }
         });
 
         return PolicyVehicleHeaderDto.set(policyVehicle);
     }
-
 
 }
